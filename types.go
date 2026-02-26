@@ -361,8 +361,6 @@ func (c Chat) ChatConfig() ChatConfig {
 type Message struct {
 	// MessageID is a unique message identifier inside this chat
 	MessageID int `json:"message_id"`
-	// MessageThreadID is a unique identifier for the message thread
-	MessageThreadID int `json:"message_thread_id,omitempty"`
 	// From is a sender, empty for messages sent to channels;
 	//
 	// optional
@@ -378,6 +376,11 @@ type Message struct {
 	Date int `json:"date"`
 	// Chat is the conversation the message belongs to
 	Chat *Chat `json:"chat"`
+	// MessageThreadID is the unique identifier of a message thread to which the message belongs;
+	// for supergroups only
+	//
+	// optional
+	MessageThreadID int `json:"message_thread_id,omitempty"`
 	// ForwardFrom for forwarded messages, sender of the original message;
 	//
 	// optional
